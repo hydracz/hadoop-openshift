@@ -1,0 +1,43 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: hdfs-namenode
+spec:
+  serviceName: "hdfs-namenode"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hdfs-namenode
+    spec:
+      terminationGracePeriodSeconds: 0
+      containers:
+        - name: hdfs-namenode
+          image: uhopper/hadoop-namenode:2.7.2
+          env:
+            - name: CLUSTER_NAME
+              value: hdfs-k8s
+            - name: CORE_CONF_fs_defaultFS
+              value: hdfs://hdfs-namenode-0.hdfs-namenode.hadoop.svc.cluster.local:8020
+            - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
+              value: "false"
+            - name: HDFS_CONF_dfs_permissions_enabled
+              value: "false"
+          ports:
+          - containerPort: 8020
+            name: fs
+          - containerPort: 50070
+            name: namenode-web
+          volumeMounts:
+          - name: hadoop-dfs
+            mountPath: /hadoop/dfs
+      restartPolicy: Always
+      serviceAccount: hadoop
+  volumeClaimTemplates:
+  - metadata:
+      name: hadoop-dfs
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 10Gi
