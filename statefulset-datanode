@@ -27,6 +27,7 @@ spec:
     spec:
       containers:
         - name: datanode
+          hostNetwork: true
           image: uhopper/hadoop-datanode:2.7.2
           env:
             - name: CORE_CONF_fs_defaultFS
