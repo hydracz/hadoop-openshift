@@ -11,6 +11,7 @@ spec:
         app: hdfs-namenode
     spec:
       terminationGracePeriodSeconds: 0
+      hostNetwork: true
       containers:
         - name: hdfs-namenode
           image: uhopper/hadoop-namenode:2.7.2
