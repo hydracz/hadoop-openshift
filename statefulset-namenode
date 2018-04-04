@@ -14,7 +14,7 @@ spec:
       hostNetwork: true
       containers:
         - name: hdfs-namenode
-          image: uhopper/hadoop-namenode:2.7.2
+          image: hadoop-namenode:2.7.2
           env:
             - name: CLUSTER_NAME
               value: hdfs-k8s
