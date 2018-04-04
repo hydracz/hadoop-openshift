@@ -10,6 +10,29 @@ oc create sa hadoop
 oc login -u system:admin
 oc adm policy add-scc-to-user anyuid -z hadoop
 ```
+use oc edit scc anyuid to enable hostpath plugin,  this is for allowing hadoop container to access hostpath /hadoop/dfs
+```shell
+oc edit scc anyuid
+```
+the anyuid scc will be looks like following
+```shell
+set allowHostDirVolumePlugin: true and leave other things no change
+
+allowHostDirVolumePlugin: true
+allowHostIPC: false
+......
+fsGroup:
+  type: RunAsAny
+groups:
+- system:cluster-admins
+kind: SecurityContextConstraints
+......
+- hostPath
+- persistentVolumeClaim
+- projected
+- secret
+```
+
 lable the node for pod to be schedulable
 ```shell
 oc lable node node1.ocp37.com node-role.kubernetes.io/compute=true 
