@@ -38,3 +38,16 @@ lable the node for pod to be schedulable (required from ocp 3.9)
 oc lable node node1.ocp37.com node-role.kubernetes.io/compute=true 
 oc lable node node1.ocp37.com node-role.kubernetes.io/compute=true 
 ```
+
+we are going to use below image from docker,  replace the image for your own installation in datanode.yml and namenode.yml  
+```shell
+docker.io/uhopper/hadoop-namenode:2.7.2
+docker.io/uhopper/hadoop-namenode:2.7.2
+```
+now we can go ahead and create namenode and datanode using the yml file and define the services
+```shell
+oc create -f namenode.yml
+oc create service loadbalancer hdfs-namenode --tcp=8020:8020 --tcp=50070:50070
+oc expose service hdfs-namenode --port=50070
+oc create -f datanode.yml
+```
