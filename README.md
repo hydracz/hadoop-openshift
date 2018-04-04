@@ -15,9 +15,9 @@ use oc edit scc anyuid to enable hostpath plugin,  this is for allowing hadoop c
 oc edit scc anyuid
 ```
 the anyuid scc will be looks like following
-```shell
-set allowHostDirVolumePlugin: true and leave other things no change
+only  set allowHostDirVolumePlugin: true and leave other things no change
 
+```shell
 allowHostDirVolumePlugin: true
 allowHostIPC: false
 ......
@@ -33,7 +33,7 @@ kind: SecurityContextConstraints
 - secret
 ```
 
-lable the node for pod to be schedulable
+lable the node for pod to be schedulable (required from ocp 3.9)
 ```shell
 oc lable node node1.ocp37.com node-role.kubernetes.io/compute=true 
 oc lable node node1.ocp37.com node-role.kubernetes.io/compute=true 
