@@ -34,11 +34,8 @@ spec:
             mountPath: /hadoop/dfs
       restartPolicy: Always
       serviceAccount: hadoop
-  volumeClaimTemplates:
-  - metadata:
-      name: hadoop-dfs
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 10Gi
+      volumes:
+        - name: hadoop-dfs
+          hostPath:
+            path: /hadoop/dfs
+            type: Directory
