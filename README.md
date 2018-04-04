@@ -51,3 +51,15 @@ oc create service loadbalancer hdfs-namenode --tcp=8020:8020 --tcp=50070:50070
 oc expose service hdfs-namenode --port=50070
 oc create -f datanode.yml
 ```
+
+till now we should have everything ready:
+```shell
+[root@master1 ~]# oc get pod
+NAME              READY     STATUS    RESTARTS   AGE
+hdfs-datanode-0   1/1       Running   0          2m
+hdfs-namenode-0   1/1       Running   0          18m
+[root@master1 ~]# oc get sts
+NAME            DESIRED   CURRENT   AGE
+hdfs-datanode   1         1         3m
+hdfs-namenode   1         1         23m
+```
