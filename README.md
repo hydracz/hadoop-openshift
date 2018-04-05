@@ -76,6 +76,18 @@ use your browser to open  hdfs-namenode-hadoop.apps.ocp37.com   you should able
 
 ![namenode](https://github.com/hydracz/hadoop-openshift/blob/master/namenode.png)
 
+use oc scale can create more datanode (no more than the actual node,  make sure there is only 1 pod running on each node)
+
+```shell
+#oc scale --replicas=2 statefulset hdfs-datanode
+[root@master1 ~]# oc get pod
+NAME              READY     STATUS    RESTARTS   AGE
+hdfs-datanode-0   1/1       Running   0          3m
+hdfs-datanode-1   1/1       Running   0          1m
+hdfs-namenode-0   1/1       Running   0          9m
+
+```
+
 Start my openshift-hadoop trip.  and Good luck
 
 Thanks to http://b4mad.net/datenbrei/openshift/hadoop-hdfs/  and nihcochen for helping me to build my lab
