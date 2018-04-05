@@ -78,3 +78,6 @@ use your browser to open  hdfs-namenode-hadoop.apps.ocp37.com   you should able
 
 Start my openshift-hadoop trip.  and Good luck
 
+Thanks to http://b4mad.net/datenbrei/openshift/hadoop-hdfs/  and nihcochen for helping me to build my lab
+next plan is run hadoop on hostnetwork because openshift sdn may reduce performanance 
+
