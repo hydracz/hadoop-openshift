@@ -87,8 +87,10 @@ hdfs-datanode-1   1/1       Running   0          1m
 hdfs-namenode-0   1/1       Running   0          9m
 
 ```
-
 Start my openshift-hadoop trip.  and Good luck
+![hadoop-openshift-main](https://github.com/hydracz/hadoop-openshift/blob/master/hadoop-openshift-main.png)
+
+
 
 Thanks to http://b4mad.net/datenbrei/openshift/hadoop-hdfs/  and nihcochen for helping me to build my lab
 next plan is run hadoop on hostnetwork because openshift sdn may reduce performanance 
