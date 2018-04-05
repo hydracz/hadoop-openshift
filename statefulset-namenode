@@ -11,7 +11,7 @@ spec:
         app: hdfs-namenode
     spec:
       terminationGracePeriodSeconds: 0
-      hostNetwork: true
+      #hostNetwork: true
       containers:
         - name: hdfs-namenode
           image: hadoop-namenode:2.7.2
