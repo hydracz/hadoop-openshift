@@ -63,3 +63,18 @@ NAME            DESIRED   CURRENT   AGE
 hdfs-datanode   1         1         3m
 hdfs-namenode   1         1         23m
 ```
+
+a route to namenode has been created by oc expose service command we run before, and we are able to get a url for it
+configuration your /etc/hosts file to redirect hdfs-namenode-hadoop.apps.ocp37.com to your node ip which is hosting your haproxy router
+```shell
+[root@master1 ~]# oc get route
+NAME            HOST/PORT                             PATH      SERVICES        PORT      TERMINATION   WILDCARD
+hdfs-namenode   hdfs-namenode-hadoop.apps.ocp37.com             hdfs-namenode   50070                   None
+```
+
+use your browser to open  hdfs-namenode-hadoop.apps.ocp37.com   you should able to get the namenode management page as below
+
+
+
+Start my openshift-hadoop trip.  and Good luck
+
