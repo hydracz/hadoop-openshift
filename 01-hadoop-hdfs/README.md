@@ -74,7 +74,7 @@ hdfs-namenode   hdfs-namenode-hadoop.apps.ocp37.com             hdfs-namenode   
 
 use your browser to open  hdfs-namenode-hadoop.apps.ocp37.com   you should able to get the namenode management page as below
 
-![namenode](https://github.com/hydracz/hadoop-openshift/blob/master/namenode.png)
+![namenode](https://github.com/hydracz/hadoop-openshift/01-hadoop-hdfs/01-hadoop-hdfs/blob/master/namenode.png)
 
 use oc scale can create more datanode (no more than the actual node,  make sure there is only 1 pod running on each node)
 
@@ -88,7 +88,7 @@ hdfs-namenode-0   1/1       Running   0          9m
 
 ```
 Start my openshift-hadoop trip.  and Good luck
-![hadoop-openshift-main](https://github.com/hydracz/hadoop-openshift/blob/master/hadoop-openshift-main.png)
+![hadoop-openshift-main](https://github.com/hydracz/hadoop-openshift/01-hadoop-hdfs/blob/master/hadoop-openshift-main.png)
 
 
 
