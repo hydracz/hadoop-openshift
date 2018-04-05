@@ -74,7 +74,7 @@ hdfs-namenode   hdfs-namenode-hadoop.apps.ocp37.com             hdfs-namenode   
 
 use your browser to open  hdfs-namenode-hadoop.apps.ocp37.com   you should able to get the namenode management page as below
 
-
+https://github.com/hydracz/hadoop-openshift/blob/master/namenode.png
 
 Start my openshift-hadoop trip.  and Good luck
 
